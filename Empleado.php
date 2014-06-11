@@ -7,18 +7,19 @@
 * mostrando la cantidad de los impuestos y el sueldo total para el empleado.
 */
 
-$message = 'Calcula  '; 
+$message = 'Calcula el sueldo Bruto de un empleado '; 
 
  
 
 //-----------  Sentencia return desde el programa datosEmpleado.php  ----------
 $xdatos = require 'datosEmpleado.php'; //require es fuerte si no lo encuentra aborta, include manda un warning si no lo encuentra
 print_r($xdatos);
-
+$nombre = $xdatos['name'];
 $iva =  $xdatos['sueldo'] *0.15;
 $isr =  $xdatos['sueldo'] *0.10; 
 $sueldoFinal = $xdatos['sueldo']-$iva -$isr;
 
+echo "\n nombre del Empleado: {$xdatos['name']}";
 echo "\nsueldo =  {$xdatos['sueldo']} \niva = $iva \nisr = $isr";
 echo "\nSueldo final = $sueldoFinal";
 ?>
