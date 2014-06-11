@@ -84,6 +84,43 @@ function nomina_while($empleados)
       echo "{$empleados[$i]['name']} |\t$sueldo \n";
 	  $i++;
    }
-}
+ } 
+ 
+//-----------  6a. forma de recorrer el vector desde una función con while    ----------
 
+   nomina_ParametroOpcional($xdatos, 0.16);
+   
+   //Notar que mandó 2 argumentos, puede mandar 1m2 o 3. El que toma son los que pasa, el resto lo toma del encabezado
+   //Solo un parámetro es obligatorio $xdatos
+   function nomina_ParametroOpcional($empleados,$porcentajeIVA = 0.15, $porcentajeISR = 0.1)
+   {
+    echo "\nDesde una Function con Parametro Opcional\nNombre del Empleado | Sueldo BRUTO\n"; 
+ 
+    //Observar que ahora se emplea directamente el vector $empleados a lo largo del while
+    $i = 0;
+    while( $i < count($empleados) )
+    {
+      $sueldo = $empleados[$i]['name']-  $empleados[$i]['sueldo'] *$porcentajeIVA - $empleados[$i]['sueldo'] *$porcentajeISR; 
+       
+      echo "{$empleados[$i]['name']} |\t$sueldo \n";
+	  $i++;
+    }
+   }
+ //-----------   función con parámetros 1,2...n    ----------  
+ function suma()
+ {
+   $suma = 0;
+   echo "\nFunction con Parametros Opcionales 1,2,.. hasta n parametros\n"; 
+ 
+   foreach(func_get_args() as $number)
+   {
+     if (!is_numeric($number)) continue;
+     $suma +=$number;
+   }
+   
+   return $suma;
+ }
+ echo suma(2,5,6,7,8,10);
+ echo suma();
+ echo suma('yuyuyu',98,true); 
 ?>
