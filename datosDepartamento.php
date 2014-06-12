@@ -1,6 +1,6 @@
 <?php
-return [
-	'nomDepto1' => 'Tintes',
+return [ 
+	'Tintes' =>  
     [
 		[
 			'name'   => 'Carolina Castaneda',
@@ -11,10 +11,10 @@ return [
             'sueldo' => 10000, 
         ],
 	],
-	'nomDepto2' => 'Armado',
+	'Armado' =>
     [
 		[
-			'name'   => 'Carol Castaneda',
+			'name'   => 'Raquelito Castaneda',
            'sueldo' => 8000, 
         ],
 	    ['name'   => 'Rafis Espinosa',
